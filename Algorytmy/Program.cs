@@ -24,7 +24,7 @@ namespace Algorytmy
             PrimeNumbers(1, 20);
             Console.WriteLine(Leibnitz(0.00001));
             HashSquare(7, leftDiagonal: true, rightDiagonal: true);
-            Console.WriteLine(Euclides(15,6));
+            Console.WriteLine(Euclides(15, 6));
 
             //FAKTURA
             Receipt receipt = new Receipt(123, 1234);
@@ -38,9 +38,22 @@ namespace Algorytmy
 
             //RATIO
             Ratio ratio1 = new Ratio(7, 3);
-            Ratio ratio2 = new Ratio(1,1);
-            RatioCalculator.MulRatio(ratio1,ratio2).RatioPrint();
+            Ratio ratio2 = new Ratio(1, 1);
+            RatioCalculator.MulRatio(ratio1, ratio2).RatioPrint();
+            Console.WriteLine();
 
+            //ALGORYTMY 2
+            Console.WriteLine(IsPalindrome("natan"));
+            List<int> list = FindAll("ala ma kota", 'a');
+            ListPrint(list);
+            Console.WriteLine(FindLongestWord("Ala ma kota kot jezdzi na Roombie"));
+            List<string> list2 = new List<string>();
+            List<double> list3 = new List<double>() { 1.2, 3.3, 2.1, 7 };
+            list2 = SplitWord("olamamakot", 'a');
+            foreach (string word in list2)
+                Console.WriteLine(word);
+            Console.WriteLine(FindAndReplace("kot kot kotek koteczek", "kot", "ala"));
+            ListDoublePrint(BubbleSort(list3,true));
             Console.ReadKey();
         }
         /// <summary>
@@ -211,6 +224,170 @@ namespace Algorytmy
                 return a;
             else
                 goto Euclides;
+        }
+        /// <summary>
+        /// Is it a palindrome
+        /// </summary>
+        /// <param name="word">Word</param>
+        /// <returns>Bool value: true- is palindrome, false- is not palindrome</returns>
+        static bool IsPalindrome(string word)
+        {
+            bool isPalindrome = true;
+            for (int i = 0; i < word.Length / 2; i++)
+            {
+                if (word[i] != word[word.Length - 1 - i])
+                {
+                    isPalindrome = false;
+                    break;
+                }
+                else
+                    continue;
+            }
+            return isPalindrome;
+        }
+        /// <summary>
+        /// Find all index of character in string
+        /// </summary>
+        /// <param name="word">Word</param>
+        /// <param name="sign">Character</param>
+        /// <returns>List of index/ int</returns>
+        static List<int> FindAll(string word, char sign)
+        {
+            List<int> list = new List<int>();
+            for (int i = 0; i < word.Length; i++)
+            {
+                if (word[i] == sign)
+                    list.Add(i);
+            }
+            return list;
+        }
+        /// <summary>
+        /// Print List of ints numbers
+        /// </summary>
+        /// <param name="list">List to print</param>
+        static void ListPrint(List<int> list)
+        {
+            foreach (var item in list)
+            {
+                Console.Write("{0} ", item);
+            }
+            Console.WriteLine();
+        }
+        /// <summary>
+        /// Find the longest word in sentence
+        /// </summary>
+        /// <param name="word">Sentence</param>
+        /// <returns>The longest word</returns>
+        static string FindLongestWord(string word)
+        {
+            string maxWord = "";
+            string[] words = word.Split(' ');
+            int max = 0;
+            for (int i = 0; i < words.Length; i++)
+            {
+                if (words[i].Length > max)
+                {
+                    max = words[i].Length;
+                    maxWord = words[i];
+                }
+            }
+
+            return maxWord;
+        }
+        /// <summary>
+        /// Own function to split string with user separator
+        /// </summary>
+        /// <param name="word">Sentence</param>
+        /// <param name="separator">Separator character</param>
+        /// <returns>List's strings with words</returns>
+        static List<string> SplitWord(string word, char separator)
+        {
+            List<string> list = new List<string>();
+            List<int> index = FindAll(word, separator);
+            int indexStart = 0;
+            string help = "";
+            for (int i = 0; i < index.Count; i++)
+            {
+
+                for (int j = indexStart; j < index[i]; j++)
+                {
+                    help += word[j];
+                }
+                indexStart = index[i] + 1;
+                list.Add(help);
+                help = "";
+            }
+            for (int j = indexStart; j < word.Length; j++)
+            {
+                help += word[j];
+            }
+            list.Add(help);
+            return list;
+        }
+        /// <summary>
+        /// Find all word1 in input and replace on word2
+        /// </summary>
+        /// <param name="input">Input string</param>
+        /// <param name="word1">Word to replace</param>
+        /// <param name="word2">Replace</param>
+        /// <returns>Word with replace</returns>
+        static string FindAndReplace(string input, string word1, string word2)
+        {
+            string output = input;
+            output = output.Replace(word1, word2);
+            return output;
+        }
+        /// <summary>
+        /// Bubble sort list of double numbers
+        /// </summary>
+        /// <param name="list">List of double numbers</param>
+        /// <param name="order">If order is false- ascendning order, else if order is true- descending order</param>
+        /// <returns></returns>
+        static List<double> BubbleSort(List<double> list, bool order = false)
+        {
+            int n = list.Count;
+            bool isChange = true;
+            double temp;
+            for (int i = 0; i < n; i++)
+            {
+                for (int j = 0; j < n - 1; j++)
+                {
+                    if (order == true)
+                    {
+                        if (list[j] < list[j + 1])
+                        {
+                            temp = list[j];
+                            list[j] = list[j + 1];
+                            list[j + 1] = temp;
+                        }
+                    }
+                    else
+                    {
+                        if (list[j] > list[j + 1])
+                        {
+                            temp = list[j];
+                            list[j] = list[j + 1];
+                            list[j + 1] = temp;
+                        }
+                    }
+
+
+                }
+
+            }
+            return list;
+        }
+        /// <summary>
+        /// Print list of double
+        /// </summary>
+        /// <param name="list">List</param>
+        static void ListDoublePrint(List<double> list)
+        {
+            foreach (var item in list)
+            {
+                Console.Write("{0} ", item);
+            }
+            Console.WriteLine();
         }
     }
 }
