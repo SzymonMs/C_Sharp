@@ -21,9 +21,13 @@ namespace Algorytmy
             if (nominator_ % denominator_ == 0)
                 Console.WriteLine("{0}", nominator_ / denominator_);
             else if(nominator_ > denominator_ && nominator_%denominator_ !=0)
-                Console.WriteLine("{0} i {1}/{2}",nominator_/denominator_,denominator_-nominator_/denominator_,denominator_);
+                Console.WriteLine("{0} i {1}/{2}",nominator_/denominator_,nominator_-nominator_/denominator_*denominator_,denominator_);
             else
                 Console.WriteLine("{0}/{1}", nominator_, denominator_);
+        }
+        public static Ratio operator +(Ratio r1, Ratio r2)
+        {
+            return RatioCalculator.AddRatio(r1, r2);
         }
 
     }

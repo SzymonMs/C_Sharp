@@ -40,6 +40,8 @@ namespace Algorytmy
             Ratio ratio1 = new Ratio(7, 3);
             Ratio ratio2 = new Ratio(1, 1);
             RatioCalculator.MulRatio(ratio1, ratio2).RatioPrint();
+            Ratio ratio3 = ratio1 + ratio2;
+            ratio3.RatioPrint();
             Console.WriteLine();
 
             //ALGORYTMY 2
@@ -53,7 +55,33 @@ namespace Algorytmy
             foreach (string word in list2)
                 Console.WriteLine(word);
             Console.WriteLine(FindAndReplace("kot kot kotek koteczek", "kot", "ala"));
-            ListDoublePrint(BubbleSort(list3,true));
+            ListDoublePrint(BubbleSort(list3, true));
+
+            //Wektor
+            Vector3D v1 = new Vector3D(1, 1, 1);
+            Vector3D v2 = new Vector3D(2, -1, 10.2);
+            v1.PrintVector();
+            Vector3D v3 = v1 + v2;
+            double scalar = v1 * v2;
+            Console.WriteLine(scalar);
+            v3.PrintVector();
+            Console.WriteLine();
+
+            //Cmplx
+            ComplexNumber cmplx1 = new ComplexNumber(1,3);
+            ComplexNumber cmplx2 = new ComplexNumber(0, 2);
+            int n = 2;
+            ComplexNumber cmplx4 = cmplx1 % n;
+            ComplexNumber cmplx3 = cmplx1 / cmplx2;
+            cmplx3.PrintCmplx();
+            cmplx4.PrintCmplx();
+            List<ComplexNumber> roots = cmplx1.Roots(5);
+            Console.WriteLine("Pierwiastki");
+            foreach (var item in roots)
+            {
+                item.PrintCmplx();
+            }
+            Console.WriteLine();
             Console.ReadKey();
         }
         /// <summary>
