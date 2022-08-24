@@ -37,11 +37,19 @@ namespace Algorytmy
             receipt.Print();
 
             //RATIO
-            Ratio ratio1 = new Ratio(7, 3);
-            Ratio ratio2 = new Ratio(1, 1);
-            RatioCalculator.MulRatio(ratio1, ratio2).RatioPrint();
-            Ratio ratio3 = ratio1 + ratio2;
-            ratio3.RatioPrint();
+            try
+            {
+                Ratio ratio1 = new Ratio(7, 3);
+                Ratio ratio2 = new Ratio(1, 2);
+                RatioCalculator.MulRatio(ratio1, ratio2).RatioPrint();
+                Ratio ratio3 = ratio1 + ratio2;
+                ratio3.RatioPrint();
+            }
+            catch(Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+
             Console.WriteLine();
 
             //ALGORYTMY 2
@@ -69,11 +77,19 @@ namespace Algorytmy
 
             //Cmplx
             ComplexNumber cmplx1 = new ComplexNumber(1,3);
-            ComplexNumber cmplx2 = new ComplexNumber(0, 2);
+            ComplexNumber cmplx2 = new ComplexNumber(0, 0);
             int n = 2;
             ComplexNumber cmplx4 = cmplx1 % n;
-            ComplexNumber cmplx3 = cmplx1 / cmplx2;
-            cmplx3.PrintCmplx();
+            ComplexNumber cmplx3;
+            try{
+                cmplx3 = cmplx1 / cmplx2;
+                Console.WriteLine("cmplx3");
+                cmplx3.PrintCmplx();
+            }
+            catch (Exception ex) {
+                Console.WriteLine(ex.Message);
+            }
+            Console.WriteLine("cmplx4");
             cmplx4.PrintCmplx();
             List<ComplexNumber> roots = cmplx1.Roots(5);
             Console.WriteLine("Pierwiastki");

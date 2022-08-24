@@ -51,6 +51,10 @@ namespace Algorytmy
         }
         public static ComplexNumber operator /(ComplexNumber c1, ComplexNumber c2)
         {
+            if ( c2.a == 0 && c2.b == 0)
+            {
+                throw new Exception("Dzielisz przez 0");
+            }
             return new ComplexNumber((c1.a * c2.a + c1.b * c2.b) / (Math.Pow(c2.a, 2) + Math.Pow(c2.b, 2)), (c2.a * c1.b - c1.a * c2.b) / (Math.Pow(c2.a, 2) + Math.Pow(c2.b, 2)));
         }
         public static ComplexNumber operator %(ComplexNumber c, int n)

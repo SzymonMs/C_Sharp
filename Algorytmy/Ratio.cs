@@ -13,8 +13,13 @@ namespace Algorytmy
         public Ratio() { }
         public Ratio(int nominator, int denominator)
         {
+            if(denominator == 0)
+            {
+                throw new Exception("Nie dziel przez 0!");
+            }
             denominator_ = denominator;
             nominator_ = nominator;
+
         }
         public void RatioPrint()
         {
