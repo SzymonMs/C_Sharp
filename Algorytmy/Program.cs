@@ -19,6 +19,7 @@ namespace Algorytmy
             Console.WriteLine("{0}, {1}", min, max);
             Console.WriteLine("Silnia:");
             Console.WriteLine(Factorial(15));
+            Console.WriteLine(FactorialRecursion(15));
             Console.WriteLine("Czy to liczba pierwsza:");
             Console.WriteLine(IsPrime(100));
             PrimeNumbers(1, 20);
@@ -129,6 +130,23 @@ namespace Algorytmy
                 factorial = factorial * (UInt64)num;
                 num -= 1;
             }
+            return factorial;
+        }
+        /// <summary>
+        /// Factorial of number in Recursion Version
+        /// </summary>
+        /// <param name="num">Number</param>
+        /// <returns>Factorial of num</returns>
+        static UInt64 FactorialRecursion(int num)
+        {
+            UInt64 factorial = 1;
+            if (num <= 1)
+            {
+                return 1;
+            }
+            else
+                return (UInt64)num * FactorialRecursion(num - 1);
+
             return factorial;
         }
         /// <summary>
