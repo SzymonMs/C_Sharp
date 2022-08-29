@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -46,7 +47,7 @@ namespace Algorytmy
                 Ratio ratio3 = ratio1 + ratio2;
                 ratio3.RatioPrint();
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 Console.WriteLine(ex.Message);
             }
@@ -65,7 +66,10 @@ namespace Algorytmy
                 Console.WriteLine(word);
             Console.WriteLine(FindAndReplace("kot kot kotek koteczek", "kot", "ala"));
             ListDoublePrint(BubbleSort(list3, true));
-
+            Console.WriteLine();
+            int[] tab = { 1, 3, 5, 7, 8, 9, 11, 13 };
+            Console.WriteLine("Binary Search: " + BinarySearch(tab, 13));
+            Console.WriteLine();
             //Wektor
             Vector3D v1 = new Vector3D(1, 1, 1);
             Vector3D v2 = new Vector3D(2, -1, 10.2);
@@ -74,20 +78,52 @@ namespace Algorytmy
             double scalar = v1 * v2;
             Console.WriteLine(scalar);
             v3.PrintVector();
+            int[,] tab2 = new int[3, 3];
+            for (int i = 0; i < 3; i++)
+            {
+                for (int j = 0; j < 3; j++)
+                {
+                    tab2[i, j] = i + j;
+                }
+            }
+            tab2[2, 2] = 0;
+            Console.WriteLine();
+            Console.WriteLine("Stara tablica");
+            for (int i = 0; i < 3; i++)
+            {
+                for (int j = 0; j < 3; j++)
+                {
+                    Console.Write(tab2[i, j] + " ");
+                }
+                Console.WriteLine();
+            }
+            Console.WriteLine("Nowa tablica");
+            TabZeros(tab2);
+            for (int i = 0; i < 3; i++)
+            {
+                for (int j = 0; j < 3; j++)
+                {
+                    Console.Write(tab2[i, j] + " ");
+                }
+                Console.WriteLine();
+            }
+            Console.WriteLine(IsTwoNumbers(tab2, 4));
             Console.WriteLine();
 
             //Cmplx
-            ComplexNumber cmplx1 = new ComplexNumber(1,3);
+            ComplexNumber cmplx1 = new ComplexNumber(1, 3);
             ComplexNumber cmplx2 = new ComplexNumber(0, 0);
             int n = 2;
             ComplexNumber cmplx4 = cmplx1 % n;
             ComplexNumber cmplx3;
-            try{
+            try
+            {
                 cmplx3 = cmplx1 / cmplx2;
                 Console.WriteLine("cmplx3");
                 cmplx3.PrintCmplx();
             }
-            catch (Exception ex) {
+            catch (Exception ex)
+            {
                 Console.WriteLine(ex.Message);
             }
             Console.WriteLine("cmplx4");
@@ -99,6 +135,8 @@ namespace Algorytmy
                 item.PrintCmplx();
             }
             Console.WriteLine();
+
+            Console.WriteLine(ReverseSentence("Ala ma kota."));
             Console.ReadKey();
         }
         /// <summary>
@@ -451,5 +489,128 @@ namespace Algorytmy
             }
             Console.WriteLine();
         }
+        /// <summary>
+        /// Binary Search in Array of int
+        /// </summary>
+        /// <param name="arr">Array</param>
+        /// <param name="num">Number</param>
+        /// <returns>Position of number num in array arr</returns>
+        static int BinarySearch(int[] arr, int num)
+        {
+            int n = 0;
+            int L = 0;
+            int H = arr.Length;
+            int M = 0;
+            while (L != H)
+            {
+                M = (L + H) / 2;
+                if (num == arr[M])
+                    return M;
+                else if (num > arr[M])
+                    L = M + 1;
+                else
+                    H = M - 1;
+            }
+            return M;
+        }
+        /// <summary>
+        /// If value in 2D array is equal 0, change whole row and column on 0 (Array can't have int.MaxValue)
+        /// </summary>
+        /// <param name="arr">Array of int number</param>
+        static void TabZeros(int[,] arr)
+        {
+            int c = arr.GetLength(1);
+            int r = arr.GetLength(0);
+            for (int i = 0; i < r; i++)
+            {
+                for (int j = 0; j < c; j++)
+                {
+                    if (arr[i, j] == 0)
+                    {
+                        for (int k = 0; k < r; k++)
+                        {
+                            arr[i, k] = int.MaxValue;
+                        }
+                        for (int l = 0; l < c; l++)
+                        {
+                            arr[l, j] = int.MaxValue;
+                        }
+                    }
+                }
+            }
+            for (int i = 0; i < r; i++)
+            {
+                for (int j = 0; j < c; j++)
+                {
+                    if (arr[i, j] == int.MaxValue)
+                        arr[i, j] = 0;
+                }
+            }
+        }
+        /// <summary>
+        /// Checks if there are two numbers in the array, the sum of which is equal to the given number
+        /// </summary>
+        /// <param name="arr">Array</param>
+        /// <param name="num">Number</param>
+        /// <returns></returns>
+        static bool IsTwoNumbers(int[,] arr, int num)
+        {
+            int r = arr.GetLength(0);
+            int c = arr.GetLength(1);
+            bool isTwoNumbers = false;
+            for (int i = 0; i < r; i++)
+            {
+                for (int j = 0; j < c; j++)
+                {
+                    int a = arr[i, j];
+                    for (int k = 0; k < r; k++)
+                    {
+                        for (int l = 0; l < c; l++)
+                        {
+                            if (a + arr[k, l] == num && k != i && l != j)
+                            {
+                                isTwoNumbers = true;
+                                break;
+                            }
+                            else
+                                continue;
+                        }
+                    }
+                }
+            }
+            return isTwoNumbers;
+        }
+        /// <summary>
+        /// Reversal of the sentence
+        /// </summary>
+        /// <param name="sentence"></param>
+        /// <returns></returns>
+        static string ReverseSentence(string sentence)
+        {
+            string reverseSentence = "";
+            List<string> list = SplitWord(sentence, ' ');
+            string s = "";
+            foreach (string item in list)
+            {
+                int x = 0;
+                for (int j = 0; j < item.Length; j++)
+                {
+                    if (item[j] == '.')
+                    {
+                        s = item.Remove(j, 1);
+                    }
+                }
+
+            }
+            list.Remove(list[list.Count-1]);
+            list.Add(s);
+            list.Reverse();
+            for (int i = 0; i < list.Count; i++)
+            {
+                reverseSentence += list[i] + " ";
+            }
+            return reverseSentence;
+        }
+
     }
 }
