@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Globalization;
 using System.Linq;
+using System.Numerics;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -137,6 +139,59 @@ namespace Algorytmy
             Console.WriteLine();
 
             Console.WriteLine(ReverseSentence("Ala ma kota."));
+
+
+            //Matrix
+            //Matrix matrix = new Matrix(3,3);
+            //Matrix matrix2 = new Matrix(3, 3);
+            //matrix.FillMatrix();
+            //matrix.PrintMatrix();
+            //matrix2.FillMatrix();
+            //matrix2.PrintMatrix();
+            //Matrix matrix3 = matrix - matrix2;
+            //matrix3.PrintMatrix();
+            Matrix matrix = new Matrix();
+            List<int> listDiag = new List<int>{ 1, 2, 3, 6 };
+            Matrix matrix4 = new Matrix(2, 3);
+            matrix4.FillMatrix();
+            //matrix = matrix.Zeros(5);
+            //matrix.PrintMatrix();
+            matrix = matrix.Diag(listDiag);
+            matrix.PrintMatrix();
+            try
+            {
+                listDiag = matrix4.GetDiagonal();
+                foreach (var item in listDiag)
+                {
+                    Console.WriteLine(item);
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+            Matrix matrix5 = new Matrix();
+            Matrix matrix6 = new Matrix();
+            matrix5 = matrix5.Ones(6);
+            matrix6 = matrix6.Ones(4);
+            matrix4 = matrix4.Ones(5);
+            try
+            {
+                matrix5 = matrix4 + matrix5;
+            }
+            catch(Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+            try
+            {
+                matrix5 = matrix4 - matrix5;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+
             Console.ReadKey();
         }
         /// <summary>
