@@ -91,9 +91,30 @@ namespace Algorytmy
             }
             return new Matrix(result);
         }
+        public static Matrix operator *(Matrix a, Matrix b)
+        {
+            int[,] result = new int[a.n_, b.m_];
+            if (a.n_ != b.m_)
+            {
+                throw new Exception("Macierze nie mają odpowiednich wymiarów");
+            }
+            for (int k = 0; k < a.n_; k++)
+            {
+                for (int i = 0; i < b.m_; i++)
+                {
+                    for (int j = 0; j < a.m_; j++)
+                    {
+                        result[k, i] += a.matrix_[k, j] * b.matrix_[j, i];
+                    }
+                }
+
+            }
+            return new Matrix(result);
+        }
         public static Matrix operator -(Matrix a, Matrix b)
         {
             int[,] result = new int[a.n_, a.m_];
+
             if(a.n_ != b.n_ && a.m_ != b.m_)
             {
                 throw new Exception("Macierze muszą być takich samych wymiarów");

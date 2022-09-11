@@ -191,6 +191,12 @@ namespace Algorytmy
             {
                 Console.WriteLine(ex.Message);
             }
+            Matrix matrix1 = new Matrix(2, 3);
+            Matrix matrix2 = new Matrix(3, 2);
+            matrix1.FillMatrix();
+            matrix2.FillMatrix();
+            Matrix matrix7 = matrix1 * matrix2;
+            matrix7.PrintMatrix();
 
             Console.ReadKey();
         }
