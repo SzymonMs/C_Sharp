@@ -31,6 +31,7 @@
             this.components = new System.ComponentModel.Container();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.statusPort = new System.Windows.Forms.Label();
             this.btnClose = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
@@ -48,10 +49,25 @@
             this.btnClear = new System.Windows.Forms.Button();
             this.tBoxTransmit = new System.Windows.Forms.TextBox();
             this.serialPort1 = new System.IO.Ports.SerialPort(this.components);
-            this.statusPort = new System.Windows.Forms.Label();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.btnClearRecive = new System.Windows.Forms.Button();
             this.tBoxRecive = new System.Windows.Forms.TextBox();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.textBox5 = new System.Windows.Forms.TextBox();
+            this.textBox6 = new System.Windows.Forms.TextBox();
+            this.textBox7 = new System.Windows.Forms.TextBox();
+            this.textBox8 = new System.Windows.Forms.TextBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
+            this.label12 = new System.Windows.Forms.Label();
+            this.label13 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -78,6 +94,16 @@
             this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Ustawienia portu";
+            // 
+            // statusPort
+            // 
+            this.statusPort.AutoSize = true;
+            this.statusPort.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.statusPort.Location = new System.Drawing.Point(258, 26);
+            this.statusPort.Name = "statusPort";
+            this.statusPort.Size = new System.Drawing.Size(33, 16);
+            this.statusPort.TabIndex = 6;
+            this.statusPort.Text = "OFF";
             // 
             // btnClose
             // 
@@ -155,6 +181,7 @@
             this.cBoxParity.Name = "cBoxParity";
             this.cBoxParity.Size = new System.Drawing.Size(121, 24);
             this.cBoxParity.TabIndex = 4;
+            this.cBoxParity.Text = "None";
             // 
             // cBoxStop
             // 
@@ -166,6 +193,7 @@
             this.cBoxStop.Name = "cBoxStop";
             this.cBoxStop.Size = new System.Drawing.Size(121, 24);
             this.cBoxStop.TabIndex = 3;
+            this.cBoxStop.Text = "One";
             // 
             // cBoxData
             // 
@@ -180,6 +208,7 @@
             this.cBoxData.Name = "cBoxData";
             this.cBoxData.Size = new System.Drawing.Size(121, 24);
             this.cBoxData.TabIndex = 2;
+            this.cBoxData.Text = "8";
             // 
             // cBoxBaudeRate
             // 
@@ -188,11 +217,14 @@
             "4800",
             "9600",
             "38400",
-            "115200"});
+            "115200",
+            "256000",
+            "500000"});
             this.cBoxBaudeRate.Location = new System.Drawing.Point(119, 53);
             this.cBoxBaudeRate.Name = "cBoxBaudeRate";
             this.cBoxBaudeRate.Size = new System.Drawing.Size(121, 24);
             this.cBoxBaudeRate.TabIndex = 1;
+            this.cBoxBaudeRate.Text = "115200";
             // 
             // cBoxPort
             // 
@@ -246,16 +278,6 @@
             // 
             this.serialPort1.DataReceived += new System.IO.Ports.SerialDataReceivedEventHandler(this.serialPort1_DataReceived);
             // 
-            // statusPort
-            // 
-            this.statusPort.AutoSize = true;
-            this.statusPort.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.statusPort.Location = new System.Drawing.Point(258, 26);
-            this.statusPort.Name = "statusPort";
-            this.statusPort.Size = new System.Drawing.Size(33, 16);
-            this.statusPort.TabIndex = 6;
-            this.statusPort.Text = "OFF";
-            // 
             // groupBox3
             // 
             this.groupBox3.Controls.Add(this.btnClearRecive);
@@ -285,11 +307,155 @@
             this.tBoxRecive.Size = new System.Drawing.Size(279, 135);
             this.tBoxRecive.TabIndex = 0;
             // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(437, 12);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(100, 22);
+            this.textBox1.TabIndex = 7;
+            // 
+            // textBox2
+            // 
+            this.textBox2.Location = new System.Drawing.Point(437, 40);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.Size = new System.Drawing.Size(100, 22);
+            this.textBox2.TabIndex = 8;
+            // 
+            // textBox3
+            // 
+            this.textBox3.Location = new System.Drawing.Point(437, 68);
+            this.textBox3.Name = "textBox3";
+            this.textBox3.Size = new System.Drawing.Size(100, 22);
+            this.textBox3.TabIndex = 9;
+            // 
+            // textBox4
+            // 
+            this.textBox4.Location = new System.Drawing.Point(437, 96);
+            this.textBox4.Name = "textBox4";
+            this.textBox4.Size = new System.Drawing.Size(100, 22);
+            this.textBox4.TabIndex = 10;
+            // 
+            // textBox5
+            // 
+            this.textBox5.Location = new System.Drawing.Point(437, 124);
+            this.textBox5.Name = "textBox5";
+            this.textBox5.Size = new System.Drawing.Size(100, 22);
+            this.textBox5.TabIndex = 11;
+            // 
+            // textBox6
+            // 
+            this.textBox6.Location = new System.Drawing.Point(437, 152);
+            this.textBox6.Name = "textBox6";
+            this.textBox6.Size = new System.Drawing.Size(100, 22);
+            this.textBox6.TabIndex = 12;
+            // 
+            // textBox7
+            // 
+            this.textBox7.Location = new System.Drawing.Point(437, 177);
+            this.textBox7.Name = "textBox7";
+            this.textBox7.Size = new System.Drawing.Size(100, 22);
+            this.textBox7.TabIndex = 13;
+            // 
+            // textBox8
+            // 
+            this.textBox8.Location = new System.Drawing.Point(437, 205);
+            this.textBox8.Name = "textBox8";
+            this.textBox8.Size = new System.Drawing.Size(100, 22);
+            this.textBox8.TabIndex = 14;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(387, 15);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(33, 16);
+            this.label6.TabIndex = 15;
+            this.label6.Text = "KRK";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(387, 43);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(36, 16);
+            this.label7.TabIndex = 16;
+            this.label7.Text = "WZZ";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(387, 71);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(32, 16);
+            this.label8.TabIndex = 17;
+            this.label8.Text = "Kpw";
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(387, 98);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(27, 16);
+            this.label9.TabIndex = 18;
+            this.label9.Text = "Kiw";
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(388, 128);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(32, 16);
+            this.label10.TabIndex = 19;
+            this.label10.Text = "Kdw";
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(388, 153);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(26, 16);
+            this.label11.TabIndex = 20;
+            this.label11.Text = "Kpi";
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(388, 181);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(21, 16);
+            this.label12.TabIndex = 21;
+            this.label12.Text = "Kii";
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(388, 206);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(26, 16);
+            this.label13.TabIndex = 22;
+            this.label13.Text = "Kdi";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.label13);
+            this.Controls.Add(this.label12);
+            this.Controls.Add(this.label11);
+            this.Controls.Add(this.label10);
+            this.Controls.Add(this.label9);
+            this.Controls.Add(this.label8);
+            this.Controls.Add(this.label7);
+            this.Controls.Add(this.label6);
+            this.Controls.Add(this.textBox8);
+            this.Controls.Add(this.textBox7);
+            this.Controls.Add(this.textBox6);
+            this.Controls.Add(this.textBox5);
+            this.Controls.Add(this.textBox4);
+            this.Controls.Add(this.textBox3);
+            this.Controls.Add(this.textBox2);
+            this.Controls.Add(this.textBox1);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
@@ -303,6 +469,7 @@
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -331,6 +498,22 @@
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.Button btnClearRecive;
         private System.Windows.Forms.TextBox tBoxRecive;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.TextBox textBox5;
+        private System.Windows.Forms.TextBox textBox6;
+        private System.Windows.Forms.TextBox textBox7;
+        private System.Windows.Forms.TextBox textBox8;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.Label label13;
     }
 }
 

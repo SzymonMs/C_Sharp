@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO.Ports;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace TestUART
 {
@@ -49,7 +50,7 @@ namespace TestUART
                 serialPort1.Parity = (Parity)Enum.Parse(typeof(Parity), cBoxParity.Text);
 
                 serialPort1.Open();
-                
+
                 statusPort.Text = "ON";
                 statusPort.ForeColor = Color.Green;
                 statusPort.Enabled = true;
@@ -80,7 +81,7 @@ namespace TestUART
             if (serialPort1.IsOpen)
             {
                 dataTransmit = tBoxTransmit.Text;
-                serialPort1.WriteLine(dataTransmit);
+                serialPort1.Write(dataTransmit);
             }
         }
         /// <summary>
@@ -94,13 +95,33 @@ namespace TestUART
         }
         private void serialPort1_DataReceived(object sender, SerialDataReceivedEventArgs e)
         {
-            dataRecived = serialPort1.ReadExisting();
+            //if (this.InvokeRequired)
+            //{
+            //    this.BeginInvoke(new EventHandler<SerialDataReceivedEventArgs>(serialPort1_DataReceived), new object[] { sender, e });
+            //    return;
+            //}
+            dataRecived = serialPort1.ReadLine();
+            serialPort1.DiscardInBuffer();
+            serialPort1.DiscardOutBuffer();
             this.Invoke(new EventHandler(ShowData));
         }
 
         private void ShowData(object sender, EventArgs e)
         {
-            tBoxRecive.Text += dataRecived;
+            tBoxRecive.Text = dataRecived;
+            string[] tab;
+            tab = dataRecived.Split(' ');
+            if (tab[0] == "parm")
+            {
+                textBox1.Text = tab[1];
+                textBox2.Text = tab[2];
+                textBox3.Text = tab[3];
+                textBox4.Text = tab[4];
+                textBox5.Text = tab[5];
+                textBox6.Text = tab[6];
+                textBox7.Text = tab[7];
+                textBox8.Text = tab[8];
+            }
         }
 
         private void btnClearRecive_Click(object sender, EventArgs e)
