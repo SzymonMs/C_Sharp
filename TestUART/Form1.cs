@@ -9,6 +9,9 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO.Ports;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
+using System.Globalization;
+using System.IO;
+using System.Text.RegularExpressions;
 
 namespace TestUART
 {
@@ -16,6 +19,26 @@ namespace TestUART
     {
         string dataTransmit;
         string dataRecived;
+
+        int cascadeRegulator = 0;
+
+        double time = 0.0;
+        double timeMax = 8.0;
+        double data;
+        double dataI;
+        double dataU;
+        double dataW;
+
+        string folder = @"C:\Temp\";
+        string fileNameI = "pomiarI.csv";
+        string fileNameW = "pomiarW.csv";
+        string fileNameU = "pomiarU.csv";
+        string fullPathI;
+        string fullPathW;
+        string fullPathU;
+        CultureInfo culture;
+
+
         public Form1()
         {
             InitializeComponent();
@@ -41,6 +64,12 @@ namespace TestUART
 
         private void btnOpen_Click(object sender, EventArgs e)
         {
+            fullPathU = folder + fileNameU;
+            fullPathI = folder + fileNameI;
+            fullPathW = folder + fileNameW;
+            System.IO.File.WriteAllText(fullPathU, string.Empty);
+            System.IO.File.WriteAllText(fullPathI, string.Empty);
+            System.IO.File.WriteAllText(fullPathW, string.Empty);
             try
             {
                 serialPort1.PortName = cBoxPort.Text;
@@ -84,22 +113,12 @@ namespace TestUART
                 serialPort1.Write(dataTransmit);
             }
         }
-        /// <summary>
-        /// Clear of textbox
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
         private void button1_Click(object sender, EventArgs e)
         {
             tBoxTransmit.Text = "";
         }
         private void serialPort1_DataReceived(object sender, SerialDataReceivedEventArgs e)
         {
-            //if (this.InvokeRequired)
-            //{
-            //    this.BeginInvoke(new EventHandler<SerialDataReceivedEventArgs>(serialPort1_DataReceived), new object[] { sender, e });
-            //    return;
-            //}
             dataRecived = serialPort1.ReadLine();
             serialPort1.DiscardInBuffer();
             serialPort1.DiscardOutBuffer();
@@ -121,12 +140,116 @@ namespace TestUART
                 textBox6.Text = tab[6];
                 textBox7.Text = tab[7];
                 textBox8.Text = tab[8];
+                
+
+
+            }
+            else if (tab[0] == "data")
+            {
+                textBox9.Text = tab[1];
+                textBox10.Text = tab[2];
+                textBox11.Text = tab[3];
+
+                fullPathU = folder + fileNameU;
+                fullPathI = folder + fileNameI;
+                fullPathW = folder + fileNameW;
+                using (StreamWriter sw = File.AppendText(fullPathI))
+                {
+                    sw.WriteLine(time.ToString("0.00") + " " + textBox9.Text);
+                }
+                using (StreamWriter sw = File.AppendText(fullPathW))
+                {
+                    sw.WriteLine(time.ToString("0.00") + " " + textBox10.Text);
+                }
+                using (StreamWriter sw = File.AppendText(fullPathU))
+                {
+                    sw.WriteLine(time.ToString("0.00") + " " + textBox11.Text);
+                }
+
+                chart1.ChartAreas[0].AxisX.LabelStyle.Format = "0.0";
+                chart2.ChartAreas[0].AxisX.LabelStyle.Format = "0.0";
+                chart3.ChartAreas[0].AxisX.LabelStyle.Format = "0.0";
+
+                chart1.ChartAreas[0].AxisY.LabelStyle.Format = "0.0";
+                chart2.ChartAreas[0].AxisY.LabelStyle.Format = "0.0";
+                chart3.ChartAreas[0].AxisY.LabelStyle.Format = "0.0";
+
+                dataI = double.Parse(tab[1]);
+                dataW = double.Parse(tab[2]);
+                dataU = double.Parse(tab[3]);
+
+                chart1.Series[0].Points.AddXY(time, dataI);
+                chart2.Series[0].Points.AddXY(time, dataW);
+                chart3.Series[0].Points.AddXY(time, dataU);
+
+                chart1.ChartAreas[0].AxisX.Title = "t";
+                chart2.ChartAreas[0].AxisX.Title = "t";
+                chart3.ChartAreas[0].AxisX.Title = "t";
+
+                chart1.ChartAreas[0].AxisY.Title = "i(t)";
+                chart2.ChartAreas[0].AxisY.Title = "w(t)";
+                chart1.ChartAreas[0].AxisY.Title = "u(t)";
+
+                if (time > timeMax)
+                {
+                    chart1.Series[0].Points.RemoveAt(0);
+                    chart1.ChartAreas[0].AxisX.Minimum = time - timeMax;
+                    chart1.ChartAreas[0].AxisX.Maximum = time;
+                    chart2.Series[0].Points.RemoveAt(0);
+                    chart2.ChartAreas[0].AxisX.Minimum = time - timeMax;
+                    chart2.ChartAreas[0].AxisX.Maximum = time;
+                    chart3.Series[0].Points.RemoveAt(0);
+                    chart3.ChartAreas[0].AxisX.Minimum = time - timeMax;
+                    chart3.ChartAreas[0].AxisX.Maximum = time;
+                }
+                chart1.ChartAreas[0].AxisY.Maximum = dataI + dataI * 0.6;
+                chart2.ChartAreas[0].AxisY.Maximum = dataW + dataW * 0.6;
+                chart3.ChartAreas[0].AxisY.Maximum = dataU + dataU * 0.6;
+
+                time = time + 0.01;
             }
         }
 
         private void btnClearRecive_Click(object sender, EventArgs e)
         {
+            
             tBoxRecive.Text = "";
+        }
+
+        private void btnON_Click(object sender, EventArgs e)
+        {
+            if (serialPort1.IsOpen)
+            {
+                dataTransmit = "DON00000";
+                serialPort1.Write(dataTransmit);
+            }
+        }
+
+        private void btnOFF_Click(object sender, EventArgs e)
+        {
+            if (serialPort1.IsOpen)
+            {
+                dataTransmit = "DOF00000";
+                serialPort1.Write(dataTransmit);
+            }
+        }
+
+        private void btnKaskada_Click(object sender, EventArgs e)
+        {
+            if (serialPort1.IsOpen)
+            {
+                dataTransmit = "KSK00000";
+                serialPort1.Write(dataTransmit);
+            }
+        }
+
+        private void btnPrad_Click(object sender, EventArgs e)
+        {
+            if (serialPort1.IsOpen)
+            {
+                dataTransmit = "III00000";
+                serialPort1.Write(dataTransmit);
+            }
         }
     }
 }
