@@ -6,11 +6,11 @@ Files that were created while learning C#.
  
  # LIST OF PROJECTS
 
-1. Algorytmy
+1. Algorytmy - simples algorithms in C#
  
-2. Kalkulator_Windows_Forms
+2. Kalkulator_Windows_Forms - calculator in WindowsForms
  
-3. TestUART
+3. TestUART - Serial Port Terminal
 
 
  
