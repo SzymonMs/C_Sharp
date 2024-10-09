@@ -12,5 +12,4 @@ Files that were created while learning C#.
  
 3. TestUART - Serial Port Terminal
 
-
- 
+4. Rezystory - Resistors calculator in WindowsForms
