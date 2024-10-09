@@ -1,4 +1,4 @@
-Resistance Calculator
+## Resistance Calculator
 
 Simple app in C# Windows Forms
 
