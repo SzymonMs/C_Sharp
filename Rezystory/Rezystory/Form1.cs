@@ -22,39 +22,53 @@ namespace Rezystory
         string[] strip_6_colors = { "Brown", "Red", "Orange", "Yellow", "Blue", "Indigo" };
 
 
-        private void PicturBoxColorChange(PictureBox pix, string txt)
+        private void PicturBoxColorChange(PictureBox pix, string txt, PictureBox pix2)
         {
             switch (txt)
             {
 
                 case "Black":
-                    pix.BackColor = Color.Black; break;
+                    pix.BackColor = Color.Black;
+                    pix2.BackColor = Color.Black; break;
                 case "Brown":
-                    pix.BackColor = Color.SaddleBrown; break;
+                    pix.BackColor = Color.SaddleBrown;
+                    pix2.BackColor = Color.SaddleBrown; break;
                 case "Red":
-                    pix.BackColor = Color.Red; break;
+                    pix.BackColor = Color.Red;
+                    pix2.BackColor = Color.Red; break;
                 case "Orange":
-                    pix.BackColor = Color.Coral; break;
+                    pix.BackColor = Color.Coral;
+                    pix2.BackColor = Color.Coral; break;
                 case "Green":
-                    pix.BackColor = Color.Green; break;
+                    pix.BackColor = Color.Green;
+                    pix2.BackColor = Color.Green; break;
                 case "Blue":
-                    pix.BackColor = Color.Blue; break;
+                    pix.BackColor = Color.Blue;
+                    pix2.BackColor = Color.Blue; break;
                 case "Indigo":
-                    pix.BackColor = Color.Indigo; break;
+                    pix.BackColor = Color.Indigo;
+                    pix2.BackColor = Color.Indigo; break;
                 case "White":
-                    pix.BackColor = Color.White; break;
+                    pix.BackColor = Color.White;
+                    pix2.BackColor = Color.White; break;
                 case "Gray":
-                    pix.BackColor = Color.Gray; break;
+                    pix.BackColor = Color.Gray;
+                    pix2.BackColor = Color.Gray; break;
                 case "Silver":
-                    pix.BackColor = Color.Silver; break;
+                    pix.BackColor = Color.Silver;
+                    pix2.BackColor = Color.Silver; break;
                 case "Gold":
-                    pix.BackColor = Color.Gold; break;
+                    pix.BackColor = Color.Gold;
+                    pix2.BackColor = Color.Gold; break;
                 case "Yellow":
-                    pix.BackColor = Color.Yellow; break;
+                    pix.BackColor = Color.Yellow;
+                    pix2.BackColor = Color.Yellow; break;
                 case "No color":
-                    pix.BackColor = Color.AliceBlue; break;
+                    pix.BackColor = Color.AliceBlue;
+                    pix2.BackColor = Color.AliceBlue; break;
                 default:
-                    pix.BackColor = Color.DodgerBlue; break;
+                    pix.BackColor = Color.DodgerBlue;
+                    pix2.BackColor = Color.DodgerBlue; break;
             }
         }
         private float returnValueFromColor(string text, float[] values, string[] colors)
@@ -77,27 +91,27 @@ namespace Rezystory
 
         private void color_1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            PicturBoxColorChange(pictureBox1, color_1.SelectedItem.ToString());
+            PicturBoxColorChange(pictureBox1, color_1.SelectedItem.ToString(), pictureBox8);
         }
         private void color_2_SelectedIndexChanged(object sender, EventArgs e)
         {
-            PicturBoxColorChange(pictureBox2, color_2.SelectedItem.ToString());
+            PicturBoxColorChange(pictureBox2, color_2.SelectedItem.ToString(), pictureBox9);
         }
         private void color_3_SelectedIndexChanged(object sender, EventArgs e)
         {
-            PicturBoxColorChange(pictureBox3, color_3.SelectedItem.ToString());
+            PicturBoxColorChange(pictureBox3, color_3.SelectedItem.ToString(), pictureBox11);
         }
         private void color_4_SelectedIndexChanged(object sender, EventArgs e)
         {
-            PicturBoxColorChange(pictureBox4, color_4.SelectedItem.ToString());
+            PicturBoxColorChange(pictureBox4, color_4.SelectedItem.ToString(), pictureBox13);
         }
         private void color_5_SelectedIndexChanged(object sender, EventArgs e)
         {
-            PicturBoxColorChange(pictureBox5, color_5.SelectedItem.ToString());
+            PicturBoxColorChange(pictureBox5, color_5.SelectedItem.ToString(), pictureBox10);
         }
         private void color_6_SelectedIndexChanged(object sender, EventArgs e)
         {
-            PicturBoxColorChange(pictureBox6, color_6.SelectedItem.ToString());
+            PicturBoxColorChange(pictureBox6, color_6.SelectedItem.ToString(), pictureBox12);
         }
 
         private void calculation_Click(object sender, EventArgs e)
@@ -111,6 +125,7 @@ namespace Rezystory
 
             if (numberOfStrips.SelectedItem.ToString() == "4")
             {
+
                 double newValue = Math.Round((digit1 * 10 + digit2) * Math.Pow(10, multiplier), 3);
                 if (newValue < 1000)
                 {
@@ -188,6 +203,14 @@ namespace Rezystory
                 color_6.Visible = false;
                 color_5_txt.Visible = false;
                 color_6_txt.Visible = false;
+                pictureBox8.Visible = true;
+                pictureBox9.Visible = true;
+                pictureBox10.Visible = false;
+                pictureBox11.Visible = true;
+                pictureBox12.Visible = false;
+                pictureBox13.Visible = true;
+                pictureBox13.Location = new Point(1377, 82);
+                pictureBox13.Size = new Size(22, 79);
             }
             if (numberOfStrips.SelectedItem.ToString() == "5")
             {
@@ -197,6 +220,15 @@ namespace Rezystory
                 pictureBox6.Visible = false;
                 color_5_txt.Visible = true;
                 color_6_txt.Visible = false;
+                pictureBox8.Visible = true;
+                pictureBox9.Visible = true;
+                pictureBox10.Visible = true;
+                pictureBox11.Visible = true;
+                pictureBox12.Visible = false;
+                pictureBox13.Visible = true;
+                pictureBox13.Location = new Point(1377, 82);
+                pictureBox13.Size = new Size(22, 79);
+                //pictureBox12.Location = new Point(1377, 82);
             }
             if (numberOfStrips.SelectedItem.ToString() == "6")
             {
@@ -206,6 +238,17 @@ namespace Rezystory
                 pictureBox6.Visible = true;
                 color_5_txt.Visible = true;
                 color_6_txt.Visible = true;
+                pictureBox8.Visible = true;
+                pictureBox9.Visible = true;
+                pictureBox10.Visible = true;
+                pictureBox11.Visible = true;
+                pictureBox12.Visible = true;
+                pictureBox13.Visible = true;
+                pictureBox13.Location = new Point(1326, 88);
+                pictureBox13.Size = new Size(24, 62);
+                pictureBox12.Location = new Point(1377, 82);
+                pictureBox12.Size = new Size(22, 79);
+
             }
         }
     }

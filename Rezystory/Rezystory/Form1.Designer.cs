@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             color_1 = new ComboBox();
             pictureBox1 = new PictureBox();
             color_2 = new ComboBox();
@@ -52,12 +53,26 @@
             color_5_txt = new Label();
             color_6_txt = new Label();
             label2 = new Label();
+            pictureBox7 = new PictureBox();
+            pictureBox8 = new PictureBox();
+            pictureBox9 = new PictureBox();
+            pictureBox10 = new PictureBox();
+            pictureBox11 = new PictureBox();
+            pictureBox12 = new PictureBox();
+            pictureBox13 = new PictureBox();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox4).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox5).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox6).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox7).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox8).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox9).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox10).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox11).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox12).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox13).BeginInit();
             SuspendLayout();
             // 
             // color_1
@@ -258,7 +273,6 @@
             numberOfStrips.DropDownStyle = ComboBoxStyle.DropDownList;
             numberOfStrips.FormattingEnabled = true;
             numberOfStrips.Items.AddRange(new object[] { 4, 5, 6 });
-            numberOfStrips.SelectedIndex = 0;
             numberOfStrips.Location = new Point(117, 39);
             numberOfStrips.Name = "numberOfStrips";
             numberOfStrips.Size = new Size(59, 33);
@@ -294,12 +308,90 @@
             label2.TabIndex = 22;
             label2.Text = "Number of\r\n     strips";
             // 
+            // pictureBox7
+            // 
+            pictureBox7.ImageLocation = "Images\\resistor6.jpg";
+            pictureBox7.InitialImage = (Image)resources.GetObject("pictureBox7.InitialImage");
+            pictureBox7.Location = new Point(1101, 82);
+            pictureBox7.Name = "pictureBox7";
+            pictureBox7.Size = new Size(344, 224);
+            pictureBox7.TabIndex = 23;
+            pictureBox7.TabStop = false;
+            pictureBox7.WaitOnLoad = true;
+            // 
+            // pictureBox8
+            // 
+            pictureBox8.BackColor = Color.Red;
+            pictureBox8.Location = new Point(1127, 82);
+            pictureBox8.Name = "pictureBox8";
+            pictureBox8.Size = new Size(22, 79);
+            pictureBox8.TabIndex = 24;
+            pictureBox8.TabStop = false;
+            pictureBox8.Visible = false;
+            // 
+            // pictureBox9
+            // 
+            pictureBox9.BackColor = Color.Yellow;
+            pictureBox9.Location = new Point(1174, 92);
+            pictureBox9.Name = "pictureBox9";
+            pictureBox9.Size = new Size(27, 58);
+            pictureBox9.TabIndex = 25;
+            pictureBox9.TabStop = false;
+            pictureBox9.Visible = false;
+            // 
+            // pictureBox10
+            // 
+            pictureBox10.BackColor = Color.Cyan;
+            pictureBox10.Location = new Point(1207, 92);
+            pictureBox10.Name = "pictureBox10";
+            pictureBox10.Size = new Size(30, 58);
+            pictureBox10.TabIndex = 26;
+            pictureBox10.TabStop = false;
+            pictureBox10.Visible = false;
+            // 
+            // pictureBox11
+            // 
+            pictureBox11.BackColor = Color.FromArgb(0, 64, 0);
+            pictureBox11.Location = new Point(1273, 92);
+            pictureBox11.Name = "pictureBox11";
+            pictureBox11.Size = new Size(29, 58);
+            pictureBox11.TabIndex = 27;
+            pictureBox11.TabStop = false;
+            pictureBox11.Visible = false;
+            // 
+            // pictureBox12
+            // 
+            pictureBox12.BackColor = Color.Fuchsia;
+            pictureBox12.Location = new Point(1326, 88);
+            pictureBox12.Name = "pictureBox12";
+            pictureBox12.Size = new Size(24, 62);
+            pictureBox12.TabIndex = 28;
+            pictureBox12.TabStop = false;
+            pictureBox12.Visible = false;
+            // 
+            // pictureBox13
+            // 
+            pictureBox13.BackColor = Color.Blue;
+            pictureBox13.Location = new Point(1377, 82);
+            pictureBox13.Name = "pictureBox13";
+            pictureBox13.Size = new Size(22, 79);
+            pictureBox13.TabIndex = 29;
+            pictureBox13.TabStop = false;
+            pictureBox13.Visible = false;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(192, 255, 192);
-            ClientSize = new Size(1017, 441);
+            ClientSize = new Size(1466, 406);
+            Controls.Add(pictureBox13);
+            Controls.Add(pictureBox12);
+            Controls.Add(pictureBox11);
+            Controls.Add(pictureBox10);
+            Controls.Add(pictureBox9);
+            Controls.Add(pictureBox8);
+            Controls.Add(pictureBox7);
             Controls.Add(label2);
             Controls.Add(color_6_txt);
             Controls.Add(color_5_txt);
@@ -335,6 +427,13 @@
             ((System.ComponentModel.ISupportInitialize)pictureBox4).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox5).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox6).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox7).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox8).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox9).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox10).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox11).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox12).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox13).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -365,5 +464,12 @@
         private Label color_5_txt;
         private Label color_6_txt;
         private Label label2;
+        private PictureBox pictureBox7;
+        private PictureBox pictureBox8;
+        private PictureBox pictureBox9;
+        private PictureBox pictureBox10;
+        private PictureBox pictureBox11;
+        private PictureBox pictureBox12;
+        private PictureBox pictureBox13;
     }
 }
