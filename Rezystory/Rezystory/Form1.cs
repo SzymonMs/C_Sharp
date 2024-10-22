@@ -209,7 +209,7 @@ namespace Rezystory
                 pictureBox11.Visible = true;
                 pictureBox12.Visible = false;
                 pictureBox13.Visible = true;
-                pictureBox13.Location = new Point(1377, 82);
+                pictureBox13.Location = new Point(1377, 80);
                 pictureBox13.Size = new Size(22, 79);
             }
             if (numberOfStrips.SelectedItem.ToString() == "5")
@@ -226,8 +226,8 @@ namespace Rezystory
                 pictureBox11.Visible = true;
                 pictureBox12.Visible = false;
                 pictureBox13.Visible = true;
-                pictureBox13.Location = new Point(1377, 82);
-                pictureBox13.Size = new Size(22, 79);
+                pictureBox13.Location = new Point(1377, 84);
+                pictureBox13.Size = new Size(22, 72);
                 //pictureBox12.Location = new Point(1377, 82);
             }
             if (numberOfStrips.SelectedItem.ToString() == "6")
@@ -244,10 +244,10 @@ namespace Rezystory
                 pictureBox11.Visible = true;
                 pictureBox12.Visible = true;
                 pictureBox13.Visible = true;
-                pictureBox13.Location = new Point(1326, 88);
-                pictureBox13.Size = new Size(24, 62);
-                pictureBox12.Location = new Point(1377, 82);
-                pictureBox12.Size = new Size(22, 79);
+                pictureBox13.Location = new Point(1326, 94);
+                pictureBox13.Size = new Size(22, 52);
+                pictureBox12.Location = new Point(1377, 84);
+                pictureBox12.Size = new Size(22, 72);
 
             }
         }

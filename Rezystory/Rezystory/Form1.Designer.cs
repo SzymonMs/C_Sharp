@@ -89,7 +89,7 @@
             // 
             // pictureBox1
             // 
-            pictureBox1.BackColor = Color.FromArgb(192, 255, 192);
+            pictureBox1.BackColor = Color.White;
             pictureBox1.BorderStyle = BorderStyle.Fixed3D;
             pictureBox1.Location = new Point(431, 105);
             pictureBox1.Name = "pictureBox1";
@@ -110,7 +110,7 @@
             // 
             // pictureBox2
             // 
-            pictureBox2.BackColor = Color.FromArgb(192, 255, 192);
+            pictureBox2.BackColor = Color.White;
             pictureBox2.BorderStyle = BorderStyle.Fixed3D;
             pictureBox2.Location = new Point(431, 171);
             pictureBox2.Name = "pictureBox2";
@@ -248,7 +248,7 @@
             // 
             // pictureBox5
             // 
-            pictureBox5.BackColor = Color.FromArgb(192, 255, 192);
+            pictureBox5.BackColor = Color.White;
             pictureBox5.BorderStyle = BorderStyle.Fixed3D;
             pictureBox5.Location = new Point(431, 242);
             pictureBox5.Name = "pictureBox5";
@@ -259,7 +259,7 @@
             // 
             // pictureBox6
             // 
-            pictureBox6.BackColor = Color.FromArgb(192, 255, 192);
+            pictureBox6.BackColor = Color.White;
             pictureBox6.BorderStyle = BorderStyle.Fixed3D;
             pictureBox6.Location = new Point(865, 237);
             pictureBox6.Name = "pictureBox6";
@@ -321,60 +321,60 @@
             // 
             // pictureBox8
             // 
-            pictureBox8.BackColor = Color.Red;
-            pictureBox8.Location = new Point(1127, 82);
+            pictureBox8.BackColor = Color.FromArgb(232, 225, 215);
+            pictureBox8.Location = new Point(1127, 84);
             pictureBox8.Name = "pictureBox8";
-            pictureBox8.Size = new Size(22, 79);
+            pictureBox8.Size = new Size(22, 72);
             pictureBox8.TabIndex = 24;
             pictureBox8.TabStop = false;
             pictureBox8.Visible = false;
             // 
             // pictureBox9
             // 
-            pictureBox9.BackColor = Color.Yellow;
-            pictureBox9.Location = new Point(1174, 92);
+            pictureBox9.BackColor = Color.FromArgb(232, 225, 215);
+            pictureBox9.Location = new Point(1174, 94);
             pictureBox9.Name = "pictureBox9";
-            pictureBox9.Size = new Size(27, 58);
+            pictureBox9.Size = new Size(22, 52);
             pictureBox9.TabIndex = 25;
             pictureBox9.TabStop = false;
             pictureBox9.Visible = false;
             // 
             // pictureBox10
             // 
-            pictureBox10.BackColor = Color.Cyan;
-            pictureBox10.Location = new Point(1207, 92);
+            pictureBox10.BackColor = Color.FromArgb(232, 225, 215);
+            pictureBox10.Location = new Point(1207, 94);
             pictureBox10.Name = "pictureBox10";
-            pictureBox10.Size = new Size(30, 58);
+            pictureBox10.Size = new Size(22, 52);
             pictureBox10.TabIndex = 26;
             pictureBox10.TabStop = false;
             pictureBox10.Visible = false;
             // 
             // pictureBox11
             // 
-            pictureBox11.BackColor = Color.FromArgb(0, 64, 0);
-            pictureBox11.Location = new Point(1273, 92);
+            pictureBox11.BackColor = Color.FromArgb(232, 225, 215);
+            pictureBox11.Location = new Point(1273, 94);
             pictureBox11.Name = "pictureBox11";
-            pictureBox11.Size = new Size(29, 58);
+            pictureBox11.Size = new Size(22, 52);
             pictureBox11.TabIndex = 27;
             pictureBox11.TabStop = false;
             pictureBox11.Visible = false;
             // 
             // pictureBox12
             // 
-            pictureBox12.BackColor = Color.Fuchsia;
-            pictureBox12.Location = new Point(1326, 88);
+            pictureBox12.BackColor = Color.FromArgb(232, 225, 215);
+            pictureBox12.Location = new Point(1326, 94);
             pictureBox12.Name = "pictureBox12";
-            pictureBox12.Size = new Size(24, 62);
+            pictureBox12.Size = new Size(22, 52);
             pictureBox12.TabIndex = 28;
             pictureBox12.TabStop = false;
             pictureBox12.Visible = false;
             // 
             // pictureBox13
             // 
-            pictureBox13.BackColor = Color.Blue;
+            pictureBox13.BackColor = Color.FromArgb(232, 225, 215);
             pictureBox13.Location = new Point(1377, 82);
             pictureBox13.Name = "pictureBox13";
-            pictureBox13.Size = new Size(22, 79);
+            pictureBox13.Size = new Size(22, 72);
             pictureBox13.TabIndex = 29;
             pictureBox13.TabStop = false;
             pictureBox13.Visible = false;
@@ -383,7 +383,7 @@
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackColor = Color.FromArgb(192, 255, 192);
+            BackColor = Color.White;
             ClientSize = new Size(1466, 406);
             Controls.Add(pictureBox13);
             Controls.Add(pictureBox12);
@@ -419,7 +419,7 @@
             MaximizeBox = false;
             Name = "Form1";
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "Resistance Calculator v1.0";
+            Text = "Resistance Calculator v2.0";
             Load += Form1_Load;
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
